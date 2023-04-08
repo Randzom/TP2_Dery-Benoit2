@@ -1,4 +1,5 @@
 package server;
+package Course.java;
 
 import javafx.util.Pair;
 
@@ -92,6 +93,27 @@ public class Server {
      */
     public void handleLoadCourses(String arg) {
         // TODO: implémenter cette méthode
+        File courses = new File("IFT1025-TP2-server-main/src/main/java/server/data/cours.txt");
+        FileReader readCourses = new FileReader(courses);
+        BuffereadReader buffCourses = new BufferedReader(readCourses);
+        String line;
+        Course[] courseListe = new Course[];
+        int counter = 0;
+        while((line = buffCourses.readLine()) != null){
+            code = line.split(" ")[0];
+            name = line.split(" ")[1];
+            session = line.split(" ")[2];
+            if (session.equals(arg)){
+                courseListe[i] = new Course;
+                courseListe[i].setCode(code);
+                courseListe[i].setName(code);
+                courseListe[i].setSession(code);
+                i++
+            }
+        }
+        readCourses.close;
+        objectOutputStream.writeObject(courseListe);
+        System.out.println("Liste de cours pour la session demandée a été envoyée")
     }
 
     /**
